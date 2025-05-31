@@ -61,7 +61,7 @@ export class AppDog {
             const value = select.value;
             
             const updatedDog: IDog = { ...this.dog, sex: value as any };
-            const dogIndex = appState.dogs.findIndex(d => d.name === this.dog.name);
+            const dogIndex = appState.dogs.findIndex((dog: IDog) => dog.name === this.dog.name);
             
             if (dogIndex !== -1) {
               appState.dogs[dogIndex] = updatedDog;
@@ -81,7 +81,7 @@ export class AppDog {
             const value = select.value;
             
             const updatedDog: IDog = { ...this.dog, castrated: value as any };
-            const dogIndex = appState.dogs.findIndex(d => d.name === this.dog.name);
+            const dogIndex = appState.dogs.findIndex((dog: IDog) => dog.name === this.dog.name);
             
             if (dogIndex !== -1) {
               appState.dogs[dogIndex] = updatedDog;
@@ -101,7 +101,7 @@ export class AppDog {
             const value = select.value;
             
             const updatedDog: IDog = { ...this.dog, division: value as any };
-            const dogIndex = appState.dogs.findIndex(d => d.name === this.dog.name);
+            const dogIndex = appState.dogs.findIndex((dog: IDog) => dog.name === this.dog.name);
             
             if (dogIndex !== -1) {
               appState.dogs[dogIndex] = updatedDog;
@@ -130,7 +130,7 @@ export class AppDog {
             const value = select.value;
             
             const updatedDog: IDog = { ...this.dog, indication: value as any };
-            const dogIndex = appState.dogs.findIndex(d => d.name === this.dog.name);
+            const dogIndex = appState.dogs.findIndex((dog: IDog) => dog.name === this.dog.name);
             
             if (dogIndex !== -1) {
               appState.dogs[dogIndex] = updatedDog;
@@ -154,7 +154,7 @@ export class AppDog {
         <div class="form-group form-group-actions">
           <button class="button-delete" onClick={() => {
             if (confirm('Are you sure you want to delete this dog?')) {
-              const dogIndex = appState.dogs.findIndex(d => d.name === this.dog.name);
+              const dogIndex = appState.dogs.findIndex((dog: IDog) => dog.name === this.dog.name);
               if (dogIndex !== -1) {
                 appState.dogs.splice(dogIndex, 1);
                 appState.dogs = [...appState.dogs];
