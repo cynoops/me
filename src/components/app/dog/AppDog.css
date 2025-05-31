@@ -1,0 +1,11 @@
+.dog-wrapper-view {
+  background: rgba(0, 0, 0, 0.05);
+  padding: 1rem;
+  border-radius: 4px;
+}
+
+.dog-wrapper-edit {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+}
