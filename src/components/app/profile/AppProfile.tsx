@@ -64,7 +64,7 @@ export class AppProfile {
           </select> }
           { appState.mode === 'view' && <p>{ this.organisations.find((organisation) => {
             return organisation.id === appState.profile.organisation;
-          }).name }</p> }
+          })?.name }</p> }
         </div>
         <div class="form-group">
           <label htmlFor="name">Unit</label>

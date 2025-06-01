@@ -3,7 +3,7 @@ import { createStore } from '@stencil/store';
 export interface IProfile {
   name: string;
   phone: string;
-  organisation: string;
+  organisation: string | null;
   unitName: string;
   notes: string;
 }
@@ -31,22 +31,28 @@ const { state, onChange } = createStore<AppState>({
   dogs: [],
 });
 
-const loadProfileFromLocalStorage = (): IProfile | null => {
+const loadProfileFromLocalStorage = () => {
   const profileData = localStorage.getItem('profile');
   if (profileData) {
     try {
       state.profile = JSON.parse(profileData) as IProfile;
-      console.log(state.profile);
     } catch (error) {
       console.error('Failed to parse profile from localStorage:', error);
       return null;
     }
   }
-  return null;
+  state.profile = {
+    name: '',
+    phone: '',
+    organisation: null,
+    unitName: '',
+    notes: '',
+  }
+  console.log(state.profile);
 };
 loadProfileFromLocalStorage();
 
-const loadDogsFromLocalStorage = (): IDog[] | [] => {
+const loadDogsFromLocalStorage = () => {
   const dogsData = localStorage.getItem('dogs');
   if (dogsData) {
     try {
