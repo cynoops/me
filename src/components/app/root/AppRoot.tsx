@@ -17,8 +17,8 @@ export class AppRoot {
       dogs: appState.dogs,
     }));
     qr.make();
-    document.getElementById('qr-placeholder').innerHTML = qr.createImgTag(6);
-
+    document.getElementById('qr-placeholder').innerHTML = qr.createSvgTag(6, 10);
+    
     const dialog = document.getElementById('qr-code-dialog') as HTMLDialogElement;
     if (dialog) {
       dialog.showModal();
@@ -37,13 +37,22 @@ export class AppRoot {
           <div id="qr-placeholder" class="app-qr-code-placeholder" />
         </dialog>
         <header class="app-header">
-          <h1>Rescue Dog Team</h1>
+          <div class="app-title">
+            <h1>Digital Registration Card</h1>
+            <h2>Rescue Dog Team</h2>
+          </div>
           <ul class="app-menu">
-            { ['view', 'code'].includes(appState.mode) && <li onClick={() => { appState.mode = 'edit'; }}>Edit</li> }
-            { ['edit', 'code'].includes(appState.mode) && <li onClick={() => { appState.mode = 'view'; }}>View</li> }
+            { ['view', 'code'].includes(appState.mode) && <li onClick={() => { appState.mode = 'edit'; }}>
+              <img src="/assets/icons/pencil.svg" alt="Edit" class="icon" />
+            </li> }
+            { ['edit', 'code'].includes(appState.mode) && <li onClick={() => { appState.mode = 'view'; }}>
+              <img src="/assets/icons/eye.svg" alt="View" class="icon" />
+            </li> }
             <li onClick={() => {
               this.openQRCode();
-            }}>QR Code</li>
+            }}>
+              <img src="/assets/icons/qr-code.svg" alt="QR Code" class="app-qr-code-icon" />
+            </li>
           </ul>
         </header>
         <div class="app-content">

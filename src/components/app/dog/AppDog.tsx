@@ -22,8 +22,6 @@ export class AppDog {
       appState.dogs[dogIndex] = updatedDog;
       appState.dogs = [...appState.dogs];
     }
-
-    console.log(`Updated ${field}: ${value}`);
   }
   
   render() {
@@ -151,7 +149,7 @@ export class AppDog {
           </p> }
         </div>
 
-        <div class="form-group form-group-actions">
+        { appState.mode === 'edit' && <div class="form-group form-group-actions">
           <button class="button-delete" onClick={() => {
             if (confirm('Are you sure you want to delete this dog?')) {
               const dogIndex = appState.dogs.findIndex((dog: IDog) => dog.name === this.dog.name);
@@ -161,7 +159,7 @@ export class AppDog {
               }
             }
           }}>Delete</button>
-        </div>
+        </div> }
       </div>
     );
   }

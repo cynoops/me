@@ -24,6 +24,10 @@ button {
   color: white;
   cursor: pointer;
 
+  &.button-delete {
+    background-color: #dc3545;
+  }
+
   &:hover {
     background-color: #0056b3;
   }

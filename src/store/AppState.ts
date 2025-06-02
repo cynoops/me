@@ -40,15 +40,15 @@ const loadProfileFromLocalStorage = () => {
       console.error('Failed to parse profile from localStorage:', error);
       return null;
     }
+  } else {
+    state.profile = {
+      name: '',
+      phone: '',
+      organisation: null,
+      unitName: '',
+      notes: '',
+    }
   }
-  state.profile = {
-    name: '',
-    phone: '',
-    organisation: null,
-    unitName: '',
-    notes: '',
-  }
-  console.log(state.profile);
 };
 loadProfileFromLocalStorage();
 
@@ -57,7 +57,6 @@ const loadDogsFromLocalStorage = () => {
   if (dogsData) {
     try {
       state.dogs = JSON.parse(dogsData) as IDog[];
-      console.log(state.dogs);
     } catch (error) {
       console.error('Failed to parse dogs from localStorage:', error);
       return null;
@@ -67,15 +66,10 @@ const loadDogsFromLocalStorage = () => {
 };
 loadDogsFromLocalStorage();
 
-onChange('mode', (newMode) => {
-  console.log(`App mode changed to: ${newMode}`);
-});
 onChange('profile', (newProfile) => {
-  console.log(`Profile updated:`, newProfile);
   localStorage.setItem('profile', JSON.stringify(newProfile));
 });
 onChange('dogs', (newDogs) => {
-  console.log(`Dogs list updated:`, newDogs);
   localStorage.setItem('dogs', JSON.stringify(newDogs));
 });
 
