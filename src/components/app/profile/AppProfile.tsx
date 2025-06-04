@@ -60,7 +60,7 @@ export class AppProfile {
             {this.organisations.map(org => (
               <option selected={appState.profile.organisation === org.name} value={org.id} key={org.id}>{org.name}</option>
             ))}
-            <option value="other">Other</option>
+            <option value="other" selected={appState.profile.organisation === 'other'}>Other</option>
           </select> }
           { appState.mode === 'view' && <p>{ this.organisations.find((organisation) => {
             return organisation.id === appState.profile.organisation;
