@@ -98,60 +98,79 @@ export class AppDog {
           { appState.mode === 'view' && <p>{ this.dog.castrated ? 'Yes' : 'No' }</p> }
         </div>
         <div class="form-group">
-          <label htmlFor="name">Division</label>
-          { appState.mode === 'edit' && <select name="division" onChange={(e) => {
-            const select = e.target as HTMLSelectElement;
-            const value = select.value;
-            
-            const updatedDog: IDog = { ...this.dog, division: value as any };
-            const dogIndex = appState.dogs.findIndex((dog: IDog) => dog.name === this.dog.name);
-            
-            if (dogIndex !== -1) {
-              appState.dogs[dogIndex] = updatedDog;
-              appState.dogs = [...appState.dogs];
-            }
-          }}>
-            <option value="" disabled>Division</option>
-            <option selected={this.dog.division === 'mantrailing'} value="mantrailing">Mantrailing</option>
-            <option selected={this.dog.division === 'area'} value="area">Area search</option>
-            <option selected={this.dog.division === 'rubble'} value="rubble">Rubble search</option>
-            <option selected={this.dog.division === 'avalanche'} value="avalanche">Avalanche search</option>
-            <option selected={this.dog.division === 'water'} value="water">Water search</option>
-          </select> }
-          { appState.mode === 'view' && <p>
-            { this.dog.division === 'mantrailing' && 'Mantrailing' }
-            { this.dog.division === 'area' && 'Area search' }
-            { this.dog.division === 'rubble' && 'Rubble search' }
-            { this.dog.division === 'avalanche' && 'Avalanche search' }
-            { this.dog.division === 'water' && 'Water search' }
-          </p> }
-        </div>
-        <div class="form-group">
-          <label htmlFor="name">Indication</label>
-          { appState.mode === 'edit' && <select name="indication" onChange={(e) => {
-            const select = e.target as HTMLSelectElement;
-            const value = select.value;
-            
-            const updatedDog: IDog = { ...this.dog, indication: value as any };
-            const dogIndex = appState.dogs.findIndex((dog: IDog) => dog.name === this.dog.name);
-            
-            if (dogIndex !== -1) {
-              appState.dogs[dogIndex] = updatedDog;
-              appState.dogs = [...appState.dogs];
-            }
-          }}>
-            <option value="" disabled>Indication</option>
-            <option selected={this.dog.indication === 'bark'} value="bark">Barking</option>
-            <option selected={this.dog.indication === 'recall-refind'} value="recall-refind">Recall/Refind</option>
-            <option selected={this.dog.indication === 'passive'} value="passive">Passive</option>
-            <option selected={this.dog.indication === 'other'} value="other">Other</option>
-          </select> }
-          { appState.mode === 'view' && <p>
-            { this.dog.indication === 'bark' && 'Barking' }
-            { this.dog.indication === 'recall-refind' && 'Recall/Refind' }
-            { this.dog.indication === 'passive' && 'Passive' }
-            { this.dog.indication === 'other' && 'Other' }
-          </p> }
+          <label htmlFor="division">Division</label>
+          { appState.mode === 'edit' &&
+            <div class="division-options">
+              { ['mantrailing', 'area', 'rubble', 'avalanche', 'water'].map((div) => {
+                const checked = this.dog.divisions.some(d => d.division === div);
+                return <div class="division-option">
+                  <label>
+                    <input type="checkbox" checked={checked} onChange={(e) => {
+                      const input = e.target as HTMLInputElement;
+                      const isChecked = input.checked;
+                      const divisions = [...this.dog.divisions];
+                      const idx = divisions.findIndex(d => d.division === div);
+                      if (isChecked && idx === -1) {
+                        divisions.push({ division: div as any, indication: 'bark' });
+                      } else if (!isChecked && idx !== -1) {
+                        divisions.splice(idx, 1);
+                      }
+                      const dogIndex = appState.dogs.findIndex((dog: IDog) => dog.name === this.dog.name);
+                      if (dogIndex !== -1) {
+                        appState.dogs[dogIndex] = { ...this.dog, divisions } as IDog;
+                        appState.dogs = [...appState.dogs];
+                      }
+                    }} /> {
+                      {
+                        mantrailing: 'Mantrailing',
+                        area: 'Area search',
+                        rubble: 'Rubble search',
+                        avalanche: 'Avalanche search',
+                        water: 'Water search'
+                      }[div]
+                    }
+                  </label>
+                  { checked && <select onChange={(e) => {
+                    const select = e.target as HTMLSelectElement;
+                    const value = select.value;
+                    const divisions = [...this.dog.divisions];
+                    const idx = divisions.findIndex(d => d.division === div);
+                    if (idx !== -1) {
+                      divisions[idx] = { division: div as any, indication: value as any };
+                    }
+                    const dogIndex = appState.dogs.findIndex((dog: IDog) => dog.name === this.dog.name);
+                    if (dogIndex !== -1) {
+                      appState.dogs[dogIndex] = { ...this.dog, divisions } as IDog;
+                      appState.dogs = [...appState.dogs];
+                    }
+                  }}>
+                    <option value="bark" selected={this.dog.divisions.find(d => d.division === div)?.indication === 'bark'}>Barking</option>
+                    <option value="recall-refind" selected={this.dog.divisions.find(d => d.division === div)?.indication === 'recall-refind'}>Recall/Refind</option>
+                    <option value="passive" selected={this.dog.divisions.find(d => d.division === div)?.indication === 'passive'}>Passive</option>
+                    <option value="other" selected={this.dog.divisions.find(d => d.division === div)?.indication === 'other'}>Other</option>
+                  </select> }
+                </div>;
+              }) }
+            </div> }
+          { appState.mode === 'view' &&
+            <ul>
+              { this.dog.divisions.map(d => <li>{
+                {
+                  mantrailing: 'Mantrailing',
+                  area: 'Area search',
+                  rubble: 'Rubble search',
+                  avalanche: 'Avalanche search',
+                  water: 'Water search'
+                }[d.division]
+              } - {
+                {
+                  bark: 'Barking',
+                  'recall-refind': 'Recall/Refind',
+                  passive: 'Passive',
+                  other: 'Other'
+                }[d.indication]
+              }</li>) }
+            </ul> }
         </div>
 
         { appState.mode === 'edit' && <div class="form-group form-group-actions">

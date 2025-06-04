@@ -34,11 +34,13 @@ export class AppRoot {
     const profile = appState.profile;
     const dogs = appState.dogs;
 
-    const dogsHtml = dogs.map((dog) => `
+    const dogsHtml = dogs.map((dog) => {
+      const divs = dog.divisions.map(d => `${d.division} (${d.indication})`).join(', ');
+      return `
       <li>
-        <strong>${dog.name}</strong> - ${dog.age}y, ${dog.breed}, ${dog.sex === 'm' ? 'Male' : 'Female'}, ${dog.division}, ${dog.indication}, ${dog.castrated ? 'Castrated' : 'Not castrated'}
-      </li>
-    `).join('');
+        <strong>${dog.name}</strong> - ${dog.age}y, ${dog.breed}, ${dog.sex === 'm' ? 'Male' : 'Female'}, ${divs}, ${dog.castrated ? 'Castrated' : 'Not castrated'}
+      </li>`;
+    }).join('');
 
     const html = `<!DOCTYPE html>
     <html>
@@ -118,8 +120,7 @@ export class AppRoot {
                       age: 1,
                       breed: '',
                       sex: 'm',
-                      division: 'area',
-                      indication: 'bark',
+                      divisions: [],
                       notes: '',
                       castrated: false,
                     };

@@ -8,13 +8,20 @@ export interface IProfile {
   notes: string;
 }
 
+export type DivisionType = 'mantrailing' | 'area' | 'rubble' | 'avalanche' | 'water';
+export type IndicationType = 'bark' | 'recall-refind' | 'passive' | 'other';
+
+export interface IDivision {
+  division: DivisionType;
+  indication: IndicationType;
+}
+
 export interface IDog {
   name: string;
   age: number;
   breed: string;
   sex: 'm' | 'f';
-  division: 'mantrailing' | 'area' | 'rubble' | 'avalanche' | 'water',
-  indication: 'bark' | 'recall-refind' | 'passive' | 'other',
+  divisions: IDivision[];
   notes: string;
   castrated: boolean;
 }
