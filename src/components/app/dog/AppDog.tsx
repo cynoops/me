@@ -115,7 +115,7 @@ export class AppDog {
             <option selected={this.dog.division === 'mantrailing'} value="mantrailing">Mantrailing</option>
             <option selected={this.dog.division === 'area'} value="area">Area search</option>
             <option selected={this.dog.division === 'rubble'} value="rubble">Rubble search</option>
-            <option selected={this.dog.division === 'avalanche'} value="avalanche">Avalance search</option>
+            <option selected={this.dog.division === 'avalanche'} value="avalanche">Avalanche search</option>
             <option selected={this.dog.division === 'water'} value="water">Water search</option>
           </select> }
           { appState.mode === 'view' && <p>
