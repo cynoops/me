@@ -12,10 +12,15 @@ export class AppDog {
 
   handleInputChange(event: KeyboardEvent, field: string) {
     const input = event.target as HTMLInputElement;
-    const value = input.value;
+    let value: any = input.value;
+
+    // Convert value types for certain fields
+    if (field === 'age') {
+      value = parseInt(value, 10);
+    }
 
     // Update the dog object in the app state
-    const updatedDog = { ...this.dog, [field]: value };
+    const updatedDog = { ...this.dog, [field]: value } as IDog;
     const dogIndex = appState.dogs.findIndex((dog: IDog) => dog.name === this.dog.name);
     
     if (dogIndex !== -1) {
@@ -76,9 +81,9 @@ export class AppDog {
           <label htmlFor="name">Castrated</label>
           { appState.mode === 'edit' && <select name="castrated" onChange={(e) => {
             const select = e.target as HTMLSelectElement;
-            const value = select.value;
-            
-            const updatedDog: IDog = { ...this.dog, castrated: value as any };
+            const value = select.value === 'true';
+
+            const updatedDog: IDog = { ...this.dog, castrated: value };
             const dogIndex = appState.dogs.findIndex((dog: IDog) => dog.name === this.dog.name);
             
             if (dogIndex !== -1) {
