@@ -30,6 +30,49 @@ export class AppRoot {
     }
   }
 
+  openPrint() {
+    const profile = appState.profile;
+    const dogs = appState.dogs;
+
+    const dogsHtml = dogs.map((dog) => `
+      <li>
+        <strong>${dog.name}</strong> - ${dog.age}y, ${dog.breed}, ${dog.sex === 'm' ? 'Male' : 'Female'}, ${dog.division}, ${dog.indication}, ${dog.castrated ? 'Castrated' : 'Not castrated'}
+      </li>
+    `).join('');
+
+    const html = `<!DOCTYPE html>
+    <html>
+    <head>
+      <meta charset="utf-8" />
+      <title>Print</title>
+      <style>
+        body { font-family: Arial, sans-serif; padding: 1rem; }
+        h1 { font-size: 1.2rem; margin: 0; }
+        h2 { font-size: 1rem; margin-top: 1rem; }
+        ul { list-style: none; padding: 0; }
+        li { margin-bottom: 0.2rem; }
+        @media print { @page { size: A6; margin: 10mm; } }
+      </style>
+    </head>
+    <body>
+      <h1>${profile?.name || ''}</h1>
+      <p>Phone: ${profile?.phone || ''}</p>
+      <p>Organisation: ${profile?.organisation || ''}</p>
+      <p>Unit: ${profile?.unitName || ''}</p>
+      <p>${profile?.notes || ''}</p>
+      <h2>Dogs</h2>
+      <ul>${dogsHtml}</ul>
+      <script>window.onload = function() { window.print(); }</script>
+    </body>
+    </html>`;
+
+    const win = window.open('', '_blank');
+    if (win) {
+      win.document.write(html);
+      win.document.close();
+    }
+  }
+
   render() {
     return (
       <div class="app-wrapper">
@@ -52,6 +95,11 @@ export class AppRoot {
               this.openQRCode();
             }}>
               <img src="/assets/icons/qr-code.svg" alt="QR Code" class="app-qr-code-icon" />
+            </li>
+            <li onClick={() => {
+              this.openPrint();
+            }}>
+              <img src="/assets/icons/print.svg" alt="Print" class="icon" />
             </li>
           </ul>
         </header>
