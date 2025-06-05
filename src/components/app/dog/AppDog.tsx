@@ -102,7 +102,7 @@ export class AppDog {
           { appState.mode === 'edit' &&
             <div class="division-options">
               { ['mantrailing', 'area', 'rubble', 'avalanche', 'water'].map((div) => {
-                const checked = this.dog.divisions.some(d => d.division === div);
+                const checked = this.dog?.divisions?.some(d => d.division === div);
                 return <div class="division-option">
                   <label>
                     <input type="checkbox" checked={checked} onChange={(e) => {
@@ -154,7 +154,7 @@ export class AppDog {
             </div> }
           { appState.mode === 'view' &&
             <ul>
-              { this.dog.divisions.map(d => <li>{
+              { this.dog?.divisions?.map(d => <li>{
                 {
                   mantrailing: 'Mantrailing',
                   area: 'Area search',
