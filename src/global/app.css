@@ -8,6 +8,11 @@
   Any global CSS variables should also be applied here.
 */
 
+:root {
+  touch-action: pan-x pan-y;
+  height: 100% 
+}
+
 body {
   background: rgba(0, 0, 0, 0.2);
   margin: 0px;
