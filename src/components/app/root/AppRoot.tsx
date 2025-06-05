@@ -112,7 +112,7 @@ export class AppRoot {
             <div class="app-dogs-wrapper">
               <div class="app-dogs-header">
                 <h2>Dogs</h2>
-                { appState.mode === 'edit' && <button
+                { (appState.mode === 'edit' || appState.dogs.length === 0) && <button
                   class="app-add-dog-button"
                   onClick={() => {
                     const newDog:IDog = {
