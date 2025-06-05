@@ -18,7 +18,7 @@ export class AppRoot {
     }));
     qr.make();
     document.getElementById('qr-placeholder').innerHTML = qr.createSvgTag(6, 10);
-    
+
     const dialog = document.getElementById('qr-code-dialog') as HTMLDialogElement;
     if (dialog) {
       dialog.showModal();
@@ -101,7 +101,7 @@ export class AppRoot {
             <li onClick={() => {
               this.openPrint();
             }}>
-              <img src="/assets/icons/print.svg" alt="Print" class="icon" />
+              <img src="/assets/icons/printer.svg" alt="Print" class="icon" />
             </li>
           </ul>
         </header>
