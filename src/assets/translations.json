@@ -38,7 +38,8 @@
     "breed_placeholder": "Breed",
     "phone_placeholder": "Phone",
     "unit_name_placeholder": "Unit name",
-    "notes_placeholder": "Notes"
+    "notes_placeholder": "Notes",
+    "close": "Close"
   },
   "de": {
     "registration_card": "Registrierungskarte",
@@ -79,7 +80,8 @@
     "breed_placeholder": "Rasse",
     "phone_placeholder": "Telefon",
     "unit_name_placeholder": "Einheitsname",
-    "notes_placeholder": "Notizen"
+    "notes_placeholder": "Notizen",
+    "close": "Schließen"
   },
   "fr": {
     "registration_card": "Carte d'inscription",
@@ -120,6 +122,7 @@
     "breed_placeholder": "Race",
     "phone_placeholder": "Téléphone",
     "unit_name_placeholder": "Nom de l'unité",
-    "notes_placeholder": "Notes"
+    "notes_placeholder": "Notes",
+    "close": "Fermer"
   }
 }

@@ -132,7 +132,7 @@ export class AppRoot {
                 </div>
                 { appState.dogs.length === 0 && <p class="app-no-dogs">{ t('no_dogs', 'No dogs added yet.') }</p> }
                 { appState.dogs.length > 0 &&
-                  <div class={{'app-dogs-list': true, 'app-dogs-list-edit': appState.mode === 'edit', 'app-dogs-list-view': appState.mode === 'view'}}>
+                  <div class={{ 'app-dogs-list': true, 'app-dogs-list-view': true }}>
                     { appState.dogs.map((dog) =>
                       <app-dog dog={dog} />
                     )}
