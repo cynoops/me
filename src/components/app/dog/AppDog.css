@@ -69,3 +69,9 @@
   padding: 0.2rem;
   cursor: pointer;
 }
+
+.dog-item dialog {
+  width: 100%;
+  max-width: none;
+  padding: 0;
+}
