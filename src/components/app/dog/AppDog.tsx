@@ -1,4 +1,4 @@
-import { Component, h, Prop } from '@stencil/core';
+import { Component, h, Prop, Method } from '@stencil/core';
 import { appState, IDog } from '../../../store/AppState';
 import { t } from '../../../store/Translations';
 
@@ -31,7 +31,8 @@ export class AppDog {
     }
   }
   
-  openDialog() {
+  @Method()
+  async openDialog() {
     if (this.editDialog) {
       this.editDialog.showModal();
       this.editDialog.addEventListener('click', event => {
@@ -42,7 +43,8 @@ export class AppDog {
     }
   }
 
-  closeDialog() {
+  @Method()
+  async closeDialog() {
     this.editDialog?.close();
   }
 

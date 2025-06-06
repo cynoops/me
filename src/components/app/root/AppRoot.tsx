@@ -127,7 +127,12 @@ export class AppRoot {
                         castrated: false,
                       };
                       appState.dogs = [...appState.dogs, newDog];
-                    }}  
+                      setTimeout(() => {
+                        const dogEls = document.querySelectorAll('app-dog');
+                        const last = dogEls[dogEls.length - 1] as any;
+                        last?.openDialog?.();
+                      }, 0);
+                    }}
                   >{ t('add_dog', 'Add Dog') }</button> }
                 </div>
                 { appState.dogs.length === 0 && <p class="app-no-dogs">{ t('no_dogs', 'No dogs added yet.') }</p> }
