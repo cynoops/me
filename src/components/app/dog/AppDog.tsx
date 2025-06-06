@@ -99,6 +99,7 @@ export class AppDog {
   renderEdit() {
     return (
       <div class="dog-wrapper dog-wrapper-edit">
+        <h3>Dog</h3>
         <div class="form-group dog-name">
           <label htmlFor="name">{ t('name', 'Name') }</label>
           <input type="name" id="name" name="name" placeholder={t('name_placeholder', 'Name')} value={this.dog.name} onKeyUp={e => {
@@ -231,8 +232,10 @@ export class AppDog {
   render() {
     return (
       <div class="dog-item">
+        { appState.mode === 'edit' && <button class="dog-edit-button" onClick={() => this.openDialog()}>
+          <img src="/assets/icons/pencil.svg" alt="Edit" class="icon" /></button>
+        }
         { this.renderView() }
-        { appState.mode === 'edit' && <button class="dog-edit-button" onClick={() => this.openDialog()}><img src="/assets/icons/pencil.svg" alt="Edit" class="icon" /></button> }
         <dialog ref={el => this.editDialog = el}>
           { this.renderEdit() }
         </dialog>
