@@ -4,6 +4,7 @@
   border-radius: 4px;
   display: flex;
   gap: 0.4rem;
+  width: 100%;
 
   .form-group {
     margin-bottom: 0;
@@ -40,9 +41,34 @@
 }
 
 .dog-wrapper-edit {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   margin-bottom: 1rem;
   padding-bottom: 1rem;
+  padding: 1rem;
+
+  h3 {
+    margin: 0;
+    padding: 0;
+    margin-bottom: 1rem;
+  }
+
+  .division-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+
+    .division-option {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.4rem;
+  
+      label {
+        opacity: 1 !important;
+        margin-bottom: 0;
+      }
+    }
+  }
+
 }
 
 .dog-division {
@@ -68,6 +94,17 @@
   border: none;
   padding: 0.2rem;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 32px;
+  width: 42px;
+  background: rgba(0, 0, 0, 0.3);
+
+  img {
+    width: 20px;
+    height: 20px;
+  }
 }
 
 .dog-item dialog {
