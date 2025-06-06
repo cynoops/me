@@ -95,3 +95,12 @@
     height: 100% !important;
   }
 }
+
+.app-footer {
+  margin-top: 1rem;
+  text-align: center;
+
+  select {
+    padding: 0.2rem;
+  }
+}

@@ -1,5 +1,6 @@
 import { Component, h } from '@stencil/core';
 import { appState, IDog } from '../../../store/AppState';
+import { translationState, setLanguage, t } from '../../../store/Translations';
 import qrcode from 'qrcode-generator';
 
 @Component({
@@ -62,7 +63,7 @@ export class AppRoot {
       <p>Organisation: ${profile?.organisation || ''}</p>
       <p>Unit: ${profile?.unitName || ''}</p>
       <p>${profile?.notes || ''}</p>
-      <h2>Dogs</h2>
+      <h2>${t('dogs','Dogs')}</h2>
       <ul>${dogsHtml}</ul>
       <script>window.onload = function() { window.print(); }</script>
     </body>
@@ -84,8 +85,8 @@ export class AppRoot {
           </dialog>
           <header class="app-header">
             <div class="app-title">
-              <h1>Registration Card</h1>
-              <h2>Rescue Dog Team</h2>
+              <h1>{ t('registration_card', 'Registration Card') }</h1>
+              <h2>{ t('rescue_dog_team', 'Rescue Dog Team') }</h2>
             </div>
             <ul class="app-menu">
               { ['view', 'code'].includes(appState.mode) && <li onClick={() => { appState.mode = 'edit'; }}>
@@ -112,7 +113,7 @@ export class AppRoot {
               <app-profile />
               <div class="app-dogs-wrapper">
                 <div class="app-dogs-header">
-                  <h2>Dogs</h2>
+                  <h2>{ t('dogs', 'Dogs') }</h2>
                   { (appState.mode === 'edit' || appState.dogs.length === 0) && <button
                     class="app-add-dog-button"
                     onClick={() => {
@@ -127,9 +128,9 @@ export class AppRoot {
                       };
                       appState.dogs = [...appState.dogs, newDog];
                     }}  
-                  >Add Dog</button> }
+                  >{ t('add_dog', 'Add Dog') }</button> }
                 </div>
-                { appState.dogs.length === 0 && <p class="app-no-dogs">No dogs added yet.</p> }
+                { appState.dogs.length === 0 && <p class="app-no-dogs">{ t('no_dogs', 'No dogs added yet.') }</p> }
                 { appState.dogs.length > 0 &&
                   <div class={{'app-dogs-list': true, 'app-dogs-list-edit': appState.mode === 'edit', 'app-dogs-list-view': appState.mode === 'view'}}>
                     { appState.dogs.map((dog) =>
@@ -140,6 +141,13 @@ export class AppRoot {
               </div>
             </div> }
           </div>
+          <footer class="app-footer">
+            <select onChange={(e) => setLanguage((e.target as HTMLSelectElement).value)}>
+              { Object.keys(translationState.translations).map(lang =>
+                <option value={lang} selected={translationState.language === lang}>{lang.toUpperCase()}</option>
+              ) }
+            </select>
+          </footer>
         </div>
       </div>
     );
