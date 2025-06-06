@@ -56,3 +56,22 @@
     }
   }
 }
+
+.dog-item {
+  display: flex;
+  gap: 0.4rem;
+  align-items: flex-start;
+}
+
+.dog-edit-button {
+  background: transparent;
+  border: none;
+  padding: 0.2rem;
+  cursor: pointer;
+}
+
+.dog-item dialog {
+  width: 100%;
+  max-width: none;
+  padding: 0;
+}

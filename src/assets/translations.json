@@ -33,12 +33,14 @@
     "notes": "Notes",
     "select_organisation": "Select Organisation",
     "other_org": "Other",
-    "name_placeholder": "Your Name",
+    "profile_name_placeholder": "Your Name",
+    "name_placeholder": "Name",
     "age_placeholder": "Age",
     "breed_placeholder": "Breed",
     "phone_placeholder": "Phone",
     "unit_name_placeholder": "Unit name",
-    "notes_placeholder": "Notes"
+    "notes_placeholder": "Notes",
+    "close": "Close"
   },
   "de": {
     "registration_card": "Registrierungskarte",
@@ -74,12 +76,14 @@
     "notes": "Notizen",
     "select_organisation": "Organisation wählen",
     "other_org": "Andere",
-    "name_placeholder": "Ihr Name",
+    "profile_name_placeholder": "Ihr Name",
+    "name_placeholder": "Name",
     "age_placeholder": "Alter",
     "breed_placeholder": "Rasse",
     "phone_placeholder": "Telefon",
     "unit_name_placeholder": "Einheitsname",
-    "notes_placeholder": "Notizen"
+    "notes_placeholder": "Notizen",
+    "close": "Schließen"
   },
   "fr": {
     "registration_card": "Carte d'inscription",
@@ -115,11 +119,13 @@
     "notes": "Notes",
     "select_organisation": "Sélectionner une organisation",
     "other_org": "Autre",
-    "name_placeholder": "Votre nom",
+    "profile_name_placeholder": "Votre nom",
+    "name_placeholder": "Nom",
     "age_placeholder": "Âge",
     "breed_placeholder": "Race",
     "phone_placeholder": "Téléphone",
     "unit_name_placeholder": "Nom de l'unité",
-    "notes_placeholder": "Notes"
+    "notes_placeholder": "Notes",
+    "close": "Fermer"
   }
 }

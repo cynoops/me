@@ -9,7 +9,9 @@ import { IDog } from "./store/AppState";
 export { IDog } from "./store/AppState";
 export namespace Components {
     interface AppDog {
+        "closeDialog": () => Promise<void>;
         "dog": IDog;
+        "openDialog": () => Promise<void>;
     }
     interface AppProfile {
     }

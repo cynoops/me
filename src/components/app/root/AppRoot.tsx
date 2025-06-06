@@ -127,12 +127,17 @@ export class AppRoot {
                         castrated: false,
                       };
                       appState.dogs = [...appState.dogs, newDog];
-                    }}  
+                      setTimeout(() => {
+                        const dogEls = document.querySelectorAll('app-dog');
+                        const last = dogEls[dogEls.length - 1] as any;
+                        last?.openDialog?.();
+                      }, 0);
+                    }}
                   >{ t('add_dog', 'Add Dog') }</button> }
                 </div>
                 { appState.dogs.length === 0 && <p class="app-no-dogs">{ t('no_dogs', 'No dogs added yet.') }</p> }
                 { appState.dogs.length > 0 &&
-                  <div class={{'app-dogs-list': true, 'app-dogs-list-edit': appState.mode === 'edit', 'app-dogs-list-view': appState.mode === 'view'}}>
+                  <div class={{ 'app-dogs-list': true, 'app-dogs-list-view': true }}>
                     { appState.dogs.map((dog) =>
                       <app-dog dog={dog} />
                     )}

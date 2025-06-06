@@ -34,7 +34,7 @@ export class AppProfile {
       <div class="profile-wrapper">
         <div class="form-group">
           <label htmlFor="name">{ t('name', 'Name') }</label>
-          { appState.mode === 'edit' && <input type="text" id="name" name="name" placeholder={t('name_placeholder', 'Your Name')} value={appState.profile.name} onKeyUp={(e) => {
+          { appState.mode === 'edit' && <input type="text" id="name" name="name" placeholder={t('profile_name_placeholder', 'Your Name')} value={appState.profile.name} onKeyUp={(e) => {
             this.handleInputChange(e, 'name');
           }} /> }
           { appState.mode === 'view' && <p>{ appState.profile.name }</p> }
