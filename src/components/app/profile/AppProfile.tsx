@@ -59,7 +59,7 @@ export class AppProfile {
           }}>
             <option value="">{ t('select_organisation', 'Select Organisation') }</option>
             {this.organisations.map(org => (
-              <option selected={appState.profile.organisation === org.name} value={org.id} key={org.id}>{org.name}</option>
+              <option selected={appState.profile.organisation === org.id} value={org.id} key={org.id}>{org.name}</option>
             ))}
             <option value="other" selected={appState.profile.organisation === 'other'}>{ t('other_org', 'Other') }</option>
           </select> }
