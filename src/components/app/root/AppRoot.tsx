@@ -39,7 +39,7 @@ export class AppRoot {
       const divs = dog.divisions.map(d => `${d.division} (${d.indication})`).join(', ');
       return `
       <li>
-        <strong>${dog.name}</strong> - ${dog.age}y, ${dog.breed}, ${dog.sex === 'm' ? 'Male' : 'Female'}, ${divs}, ${dog.castrated ? 'Castrated' : 'Not castrated'}
+        <strong>${dog.name || 'Unnamed'}</strong> - ${dog.age}y, ${dog.breed}, ${dog.sex === 'm' ? 'Male' : 'Female'}, ${divs}, ${dog.castrated ? 'Castrated' : 'Not castrated'}
       </li>`;
     }).join('');
 
@@ -77,6 +77,7 @@ export class AppRoot {
   }
 
   render() {
+    const profileComplete = !!(appState.profile?.name && appState.profile?.phone);
     return (
       <div class="app-wrapper">
         <div class="app-inner-wrapper">
@@ -95,14 +96,18 @@ export class AppRoot {
               { ['edit', 'code'].includes(appState.mode) && <li onClick={() => { appState.mode = 'view'; }}>
                 <img src="/assets/icons/eye.svg" alt="View" class="icon" />
               </li> }
-              <li onClick={() => {
-                this.openQRCode();
-              }}>
+              <li
+                class={{ disabled: !profileComplete }}
+                onClick={() => {
+                  if (profileComplete) this.openQRCode();
+                }}>
                 <img src="/assets/icons/qr-code.svg" alt="QR Code" class="app-qr-code-icon" />
               </li>
-              <li onClick={() => {
-                this.openPrint();
-              }}>
+              <li
+                class={{ disabled: !profileComplete }}
+                onClick={() => {
+                  if (profileComplete) this.openPrint();
+                }}>
                 <img src="/assets/icons/printer.svg" alt="Print" class="icon" />
               </li>
             </ul>
