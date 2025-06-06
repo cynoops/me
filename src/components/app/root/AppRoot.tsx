@@ -143,9 +143,10 @@ export class AppRoot {
           </div>
           <footer class="app-footer">
             <select onChange={(e) => setLanguage((e.target as HTMLSelectElement).value)}>
-              { Object.keys(translationState.translations).map(lang =>
-                <option value={lang} selected={translationState.language === lang}>{lang.toUpperCase()}</option>
-              ) }
+              { Object.keys(translationState.translations).map(lang => {
+                const names: {[k:string]: string} = { en: 'English', de: 'Deutsch', fr: 'Français' };
+                return <option value={lang} selected={translationState.language === lang}>{names[lang] || lang}</option>;
+              }) }
             </select>
           </footer>
         </div>

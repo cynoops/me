@@ -34,14 +34,14 @@ export class AppProfile {
       <div class="profile-wrapper">
         <div class="form-group">
           <label htmlFor="name">{ t('name', 'Name') }</label>
-          { appState.mode === 'edit' && <input type="text" id="name" name="name" placeholder="Your Name" value={appState.profile.name} onKeyUp={(e) => {
+          { appState.mode === 'edit' && <input type="text" id="name" name="name" placeholder={t('name_placeholder', 'Your Name')} value={appState.profile.name} onKeyUp={(e) => {
             this.handleInputChange(e, 'name');
           }} /> }
           { appState.mode === 'view' && <p>{ appState.profile.name }</p> }
         </div>
         <div class="form-group">
           <label htmlFor="name">{ t('phone', 'Phone') }</label>
-          { appState.mode === 'edit' && <input type="phone" id="phone" name="phone" placeholder="Phone" value={appState.profile.phone} onKeyUp={(e) => {
+          { appState.mode === 'edit' && <input type="phone" id="phone" name="phone" placeholder={t('phone_placeholder', 'Phone')} value={appState.profile.phone} onKeyUp={(e) => {
             this.handleInputChange(e, 'phone');
           }} /> }
           { appState.mode === 'view' && <p>{ appState.profile.phone }</p> }
@@ -69,14 +69,14 @@ export class AppProfile {
         </div>
         <div class="form-group">
           <label htmlFor="name">{ t('unit', 'Unit') }</label>
-          { appState.mode === 'edit' && <input type="unitName" id="unitName" name="unitName" placeholder="Unit name" value={appState.profile.unitName} onKeyUp={(e) => {
+          { appState.mode === 'edit' && <input type="unitName" id="unitName" name="unitName" placeholder={t('unit_name_placeholder', 'Unit name')} value={appState.profile.unitName} onKeyUp={(e) => {
             this.handleInputChange(e, 'unitName');
           }} /> }
           { appState.mode === 'view' && <p>{ appState.profile.unitName }</p> }
         </div>
         <div class="form-group">
           <label htmlFor="notes">{ t('notes', 'Notes') }</label>
-          { appState.mode === 'edit' && <textarea id="notes" name="notes" placeholder="Notes" onKeyUp={(e) => {
+          { appState.mode === 'edit' && <textarea id="notes" name="notes" placeholder={t('notes_placeholder', 'Notes')} onKeyUp={(e) => {
             this.handleInputChange(e, 'notes');
           }}>{ appState.profile.notes }</textarea> }
 

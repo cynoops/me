@@ -39,21 +39,21 @@ export class AppDog {
       }}>
         <div class="form-group dog-name">
           <label htmlFor="name">{ t('name', 'Name') }</label>
-          { appState.mode === 'edit' && <input type="name" id="name" name="name" placeholder="Name" value={this.dog.name} onKeyUp={(e) => {
+          { appState.mode === 'edit' && <input type="name" id="name" name="name" placeholder={t('name_placeholder', 'Name')} value={this.dog.name} onKeyUp={(e) => {
             this.handleInputChange(e, 'name');
           }} /> }
           { appState.mode === 'view' && <p>{ this.dog.name }</p> }
         </div>
         <div class="form-group dog-age">
           <label htmlFor="name">{ t('age', 'Age') }</label>
-          { appState.mode === 'edit' && <input type="number" step={1} id="age" name="age" placeholder="Age" value={this.dog.age} onKeyUp={(e) => {
+          { appState.mode === 'edit' && <input type="number" step={1} id="age" name="age" placeholder={t('age_placeholder', 'Age')} value={this.dog.age} onKeyUp={(e) => {
             this.handleInputChange(e, 'age');
           }} /> }
           { appState.mode === 'view' && <p>{ this.dog.age }</p> }
         </div>
         <div class="form-group dog-breed">
           <label htmlFor="name">{ t('breed', 'Breed') }</label>
-          { appState.mode === 'edit' && <input type="text" id="breed" name="breed" placeholder="Breed" value={this.dog.breed} onKeyUp={(e) => {
+          { appState.mode === 'edit' && <input type="text" id="breed" name="breed" placeholder={t('breed_placeholder', 'Breed')} value={this.dog.breed} onKeyUp={(e) => {
             this.handleInputChange(e, 'breed');
           }} /> }
           { appState.mode === 'view' && <p>{ this.dog.breed }</p> }
