@@ -89,6 +89,12 @@
   gap: 1rem;
 }
 
+.app-no-dogs {
+  margin: 0;
+  padding: 0;
+  opacity: 0.3;
+}
+
 #qr-placeholder {
   svg {
     width: 100% !important;

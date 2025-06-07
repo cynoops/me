@@ -114,7 +114,7 @@ export class AppRoot {
               <div class="app-dogs-wrapper">
                 <div class="app-dogs-header">
                   <h2>{ t('dogs', 'Dogs') }</h2>
-                  { (appState.mode === 'edit' || appState.dogs.length === 0) && <button
+                  <button
                     class="app-add-dog-button"
                     onClick={() => {
                       const newDog:IDog = {
@@ -133,7 +133,7 @@ export class AppRoot {
                         last?.openDialog?.();
                       }, 0);
                     }}
-                  >{ t('add_dog', 'Add Dog') }</button> }
+                  >{ t('add_dog', 'Add Dog') }</button>
                 </div>
                 { appState.dogs.length === 0 && <p class="app-no-dogs">{ t('no_dogs', 'No dogs added yet.') }</p> }
                 { appState.dogs.length > 0 &&
