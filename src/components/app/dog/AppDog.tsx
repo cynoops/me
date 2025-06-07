@@ -53,7 +53,7 @@ export class AppDog {
       <div class="dog-wrapper dog-wrapper-view">
         <div class="form-group dog-name">
           <label htmlFor="name">{ t('name', 'Name') }</label>
-          <p>{ this.dog.name }</p>
+          <p>{ this.dog.name || t('unnamed', 'Unnamed') }</p>
         </div>
         <div class="form-group dog-age">
           <label htmlFor="age">{ t('age', 'Age') }</label>
