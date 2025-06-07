@@ -1,5 +1,15 @@
 {
   "projects": {
-    "default": "cynoops-f532c"
-  }
+    "default": "com-cynoops"
+  },
+  "targets": {
+    "com-cynoops": {
+      "hosting": {
+        "com-cynoops-me": [
+          "com-cynoops-me"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }
