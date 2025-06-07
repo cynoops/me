@@ -1,5 +1,7 @@
 {
   "projects": {
     "default": "com-cynoops"
-  }
+  },
+  "targets": {},
+  "etags": {}
 }
