@@ -2,6 +2,14 @@
   "projects": {
     "default": "com-cynoops"
   },
-  "targets": {},
+  "targets": {
+    "com-cynoops": {
+      "hosting": {
+        "com-cynoops-me": [
+          "com-cynoops-me"
+        ]
+      }
+    }
+  },
   "etags": {}
 }
