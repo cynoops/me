@@ -1,134 +1,212 @@
 {
   "en": {
-    "registration_card": "Registration Card",
-    "rescue_dog_team": "Rescue Dog Team",
-    "dogs": "Dogs",
-    "add_dog": "Add Dog",
-    "no_dogs": "No dogs added yet.",
-    "name": "Name",
-    "age": "Age",
-    "breed": "Breed",
-    "sex": "Sex",
-    "male": "Male",
-    "female": "Female",
-    "castrated": "Castrated",
-    "select_sex": "Select sex",
-    "yes": "Yes",
-    "no": "No",
-    "division": "Division",
-    "barking": "Barking",
-    "recall_refind": "Recall/Refind",
-    "passive": "Passive",
-    "other": "Other",
-    "mantrailing": "Mantrailing",
-    "area_search": "Area search",
-    "rubble_search": "Rubble search",
-    "avalanche_search": "Avalanche search",
-    "water_search": "Water search",
-    "delete": "Delete",
-    "delete_dog_confirm": "Are you sure you want to delete this dog?",
-    "phone": "Phone",
-    "organisation": "Organisation",
-    "unit": "Unit",
-    "notes": "Notes",
-    "select_organisation": "Select Organisation",
-    "other_org": "Other",
-    "profile_name_placeholder": "Your Name",
-    "name_placeholder": "Name",
-    "age_placeholder": "Age",
-    "breed_placeholder": "Breed",
-    "phone_placeholder": "Phone",
-    "unit_name_placeholder": "Unit name",
-    "notes_placeholder": "Notes",
-    "unnamed": "Unnamed",
-    "close": "Close"
+    "app": {
+      "title": "Digital Registration Card",
+      "tagline": "Rescue Dog Team"
+    },
+    "header": {
+      "edit": "Edit",
+      "view": "Read",
+      "shareQr": "QR",
+      "print": "Print"
+    },
+    "profile": {
+      "title": "Handler profile",
+      "name": "Name",
+      "phone": "Phone",
+      "organisation": "Organisation",
+      "organisationOther": "Other organisation",
+      "unit": "Unit",
+      "notes": "Notes"
+    },
+    "dogs": {
+      "title": "Working dogs",
+      "add": "Add dog",
+      "empty": "Add your first dog to keep the roster handy.",
+      "name": "Name",
+      "age": "Age (years)",
+      "breed": "Breed",
+      "sex": "Sex",
+      "sexOptions": {
+        "male": "Male",
+        "female": "Female",
+        "unknown": "Unknown"
+      },
+      "castrated": "Castrated",
+      "castrationOptions": {
+        "yes": "Yes",
+        "no": "No"
+      },
+      "divisions": "Divisions",
+      "indication": "Indication",
+      "notes": "Notes",
+      "delete": "Delete",
+      "edit": "Edit"
+    },
+    "divisions": {
+      "mantrailing": "Mantrailing",
+      "area": "Area",
+      "rubble": "Rubble",
+      "avalanche": "Avalanche",
+      "water": "Water"
+    },
+    "indications": {
+      "barking": "Barking",
+      "recall": "Recall / Refind",
+      "passive": "Passive",
+      "other": "Other"
+    },
+    "modal": {
+      "title": "Dog details",
+      "save": "Save",
+      "cancel": "Cancel"
+    },
+    "footer": {
+      "language": "Language"
+    },
+    "messages": {
+      "profileIncomplete": "Add a name and phone number before sharing.",
+      "deleteDog": "Remove dog from roster?"
+    }
   },
   "de": {
-    "registration_card": "Registrierungskarte",
-    "rescue_dog_team": "Rettungshundestaffel",
-    "dogs": "Hunde",
-    "add_dog": "Hund hinzufügen",
-    "no_dogs": "Noch keine Hunde hinzugefügt.",
-    "name": "Name",
-    "age": "Alter",
-    "breed": "Rasse",
-    "sex": "Geschlecht",
-    "male": "Männlich",
-    "female": "Weiblich",
-    "castrated": "Kastriert",
-    "select_sex": "Geschlecht wählen",
-    "yes": "Ja",
-    "no": "Nein",
-    "division": "Sparte",
-    "barking": "Verbellen",
-    "recall_refind": "Rückverweis",
-    "passive": "Passiv",
-    "other": "Andere",
-    "mantrailing": "Mantrailing",
-    "area_search": "Flächensuche",
-    "rubble_search": "Trümmersuche",
-    "avalanche_search": "Lawinensuche",
-    "water_search": "Wassersuche",
-    "delete": "Löschen",
-    "delete_dog_confirm": "Möchten Sie diesen Hund wirklich löschen?",
-    "phone": "Telefon",
-    "organisation": "Organisation",
-    "unit": "Einheit",
-    "notes": "Notizen",
-    "select_organisation": "Organisation wählen",
-    "other_org": "Andere",
-    "profile_name_placeholder": "Ihr Name",
-    "name_placeholder": "Name",
-    "age_placeholder": "Alter",
-    "breed_placeholder": "Rasse",
-    "phone_placeholder": "Telefon",
-    "unit_name_placeholder": "Einheitsname",
-    "notes_placeholder": "Notizen",
-    "unnamed": "Unbenannt",
-    "close": "Schließen"
+    "app": {
+      "title": "Digital Registration Card",
+      "tagline": "Rescue Dog Team"
+    },
+    "header": {
+      "edit": "Bearbeiten",
+      "view": "Lesen",
+      "shareQr": "QR",
+      "print": "Drucken"
+    },
+    "profile": {
+      "title": "Hundeführer*in",
+      "name": "Name",
+      "phone": "Telefon",
+      "organisation": "Organisation",
+      "organisationOther": "Andere Organisation",
+      "unit": "Einheit",
+      "notes": "Notizen"
+    },
+    "dogs": {
+      "title": "Einsatzhunde",
+      "add": "Hund hinzufügen",
+      "empty": "Füge deinen ersten Hund hinzu.",
+      "name": "Name",
+      "age": "Alter (Jahre)",
+      "breed": "Rasse",
+      "sex": "Geschlecht",
+      "sexOptions": {
+        "male": "Rüde",
+        "female": "Hündin",
+        "unknown": "Unbekannt"
+      },
+      "castrated": "Kastriert",
+      "castrationOptions": {
+        "yes": "Ja",
+        "no": "Nein"
+      },
+      "divisions": "Fachbereiche",
+      "indication": "Anzeige",
+      "notes": "Notizen",
+      "delete": "Löschen",
+      "edit": "Bearbeiten"
+    },
+    "divisions": {
+      "mantrailing": "Mantrailing",
+      "area": "Fläche",
+      "rubble": "Trümmer",
+      "avalanche": "Lawine",
+      "water": "Wasser"
+    },
+    "indications": {
+      "barking": "Verbellen",
+      "recall": "Verweisen / Bringseln",
+      "passive": "Passiv",
+      "other": "Andere"
+    },
+    "modal": {
+      "title": "Hundedaten",
+      "save": "Speichern",
+      "cancel": "Abbrechen"
+    },
+    "footer": {
+      "language": "Sprache"
+    },
+    "messages": {
+      "profileIncomplete": "Zuerst Name und Telefonnummer ergänzen.",
+      "deleteDog": "Hund aus der Liste entfernen?"
+    }
   },
   "fr": {
-    "registration_card": "Carte d'inscription",
-    "rescue_dog_team": "Équipe de chiens de sauvetage",
-    "dogs": "Chiens",
-    "add_dog": "Ajouter un chien",
-    "no_dogs": "Aucun chien ajouté.",
-    "name": "Nom",
-    "age": "Âge",
-    "breed": "Race",
-    "sex": "Sexe",
-    "male": "Mâle",
-    "female": "Femelle",
-    "castrated": "Castré",
-    "select_sex": "Sélectionner le sexe",
-    "yes": "Oui",
-    "no": "Non",
-    "division": "Discipline",
-    "barking": "Aboiement",
-    "recall_refind": "Rappel/Rapport",
-    "passive": "Passif",
-    "other": "Autre",
-    "mantrailing": "Pistage",
-    "area_search": "Recherche en surface",
-    "rubble_search": "Recherche dans les décombres",
-    "avalanche_search": "Recherche d'avalanche",
-    "water_search": "Recherche aquatique",
-    "delete": "Supprimer",
-    "delete_dog_confirm": "Supprimer ce chien ?",
-    "phone": "Téléphone",
-    "organisation": "Organisation",
-    "unit": "Unité",
-    "notes": "Notes",
-    "select_organisation": "Sélectionner une organisation",
-    "other_org": "Autre",
-    "profile_name_placeholder": "Votre nom",
-    "name_placeholder": "Nom",
-    "age_placeholder": "Âge",
-    "breed_placeholder": "Race",
-    "phone_placeholder": "Téléphone",
-    "unit_name_placeholder": "Nom de l'unité",
-    "notes_placeholder": "Notes",
-    "unnamed": "Sans nom",
-    "close": "Fermer"
+    "app": {
+      "title": "Digital Registration Card",
+      "tagline": "Rescue Dog Team"
+    },
+    "header": {
+      "edit": "Éditer",
+      "view": "Lecture",
+      "shareQr": "QR",
+      "print": "Imprimer"
+    },
+    "profile": {
+      "title": "Profil du conducteur",
+      "name": "Nom",
+      "phone": "Téléphone",
+      "organisation": "Organisation",
+      "organisationOther": "Autre organisation",
+      "unit": "Unité",
+      "notes": "Notes"
+    },
+    "dogs": {
+      "title": "Chiens opérationnels",
+      "add": "Ajouter un chien",
+      "empty": "Ajoutez votre premier chien.",
+      "name": "Nom",
+      "age": "Âge (années)",
+      "breed": "Race",
+      "sex": "Sexe",
+      "sexOptions": {
+        "male": "Mâle",
+        "female": "Femelle",
+        "unknown": "Inconnu"
+      },
+      "castrated": "Castré",
+      "castrationOptions": {
+        "yes": "Oui",
+        "no": "Non"
+      },
+      "divisions": "Disciplines",
+      "indication": "Indication",
+      "notes": "Notes",
+      "delete": "Supprimer",
+      "edit": "Modifier"
+    },
+    "divisions": {
+      "mantrailing": "Pistage",
+      "area": "Surface",
+      "rubble": "Décombres",
+      "avalanche": "Avalanche",
+      "water": "Eau"
+    },
+    "indications": {
+      "barking": "Aboyer",
+      "recall": "Rappel",
+      "passive": "Passif",
+      "other": "Autre"
+    },
+    "modal": {
+      "title": "Détails du chien",
+      "save": "Enregistrer",
+      "cancel": "Annuler"
+    },
+    "footer": {
+      "language": "Langue"
+    },
+    "messages": {
+      "profileIncomplete": "Saisissez d'abord un nom et un numéro.",
+      "deleteDog": "Retirer ce chien de la liste ?"
+    }
   }
 }
