@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "www",
+    "public": "dist",
     "site": "com-cynoops-me",
     "ignore": [
       "firebase.json",
