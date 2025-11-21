@@ -32,7 +32,7 @@
         "female": "Female",
         "unknown": "Unknown"
       },
-      "castrated": "Castrated",
+      "castrated": "Castrated/sterilized",
       "castrationOptions": {
         "yes": "Yes",
         "no": "No"
@@ -71,8 +71,8 @@
   },
   "de": {
     "app": {
-      "title": "Digital Registration Card",
-      "tagline": "Rescue Dog Team"
+      "title": "Digitale Meldekarte",
+      "tagline": "Rettungshundeteam"
     },
     "header": {
       "edit": "Bearbeiten",
@@ -86,11 +86,11 @@
       "phone": "Telefon",
       "organisation": "Organisation",
       "organisationOther": "Andere Organisation",
-      "unit": "Einheit",
+      "unit": "Rettungshundestaffel",
       "notes": "Notizen"
     },
     "dogs": {
-      "title": "Einsatzhunde",
+      "title": "Hunde",
       "add": "Hund hinzufügen",
       "empty": "Füge deinen ersten Hund hinzu.",
       "name": "Name",
@@ -102,7 +102,7 @@
         "female": "Hündin",
         "unknown": "Unbekannt"
       },
-      "castrated": "Kastriert",
+      "castrated": "Kastriert/sterilisiert",
       "castrationOptions": {
         "yes": "Ja",
         "no": "Nein"
@@ -141,8 +141,8 @@
   },
   "fr": {
     "app": {
-      "title": "Digital Registration Card",
-      "tagline": "Rescue Dog Team"
+      "title": "Carte de registre numérique",
+      "tagline": "Équipe de chiens de secours"
     },
     "header": {
       "edit": "Éditer",
@@ -172,7 +172,7 @@
         "female": "Femelle",
         "unknown": "Inconnu"
       },
-      "castrated": "Castré",
+      "castrated": "Castré/stérilisé",
       "castrationOptions": {
         "yes": "Oui",
         "no": "Non"

@@ -21,6 +21,22 @@ export const QrModal = ({
   description,
 }: Props) => {
   const [svg, setSvg] = useState<string>("");
+  const [qrSize, setQrSize] = useState<number>(() => {
+    if (typeof window === "undefined") return 256;
+    const minSide = Math.min(window.innerWidth, window.innerHeight);
+    return Math.max(256, minSide - 64);
+  });
+
+  useEffect(() => {
+    if (!open) return;
+    const updateSize = () => {
+      const minSide = Math.min(window.innerWidth, window.innerHeight);
+      setQrSize(Math.max(256, minSide - 64));
+    };
+    updateSize();
+    window.addEventListener("resize", updateSize);
+    return () => window.removeEventListener("resize", updateSize);
+  }, [open]);
 
   useEffect(() => {
     if (!open) return;
@@ -45,14 +61,21 @@ export const QrModal = ({
   if (!open) return null;
 
   return (
-    <Modal open={open} onClose={onClose} title={title} widthClass="max-w-md">
-      <div className="space-y-4 text-center text-sm text-grey-text">
-        <p>{description}</p>
+    <Modal
+      open={open}
+      onClose={onClose}
+      title={title}
+      fullScreen
+      bodyClassName="flex flex-col gap-4 bg-grey-light text-center text-sm text-grey-text"
+    >
+      <div className="flex flex-1 items-center justify-center">
         <div
-          className="mx-auto max-w-[256px]"
+          className="mx-auto aspect-square w-full [&>svg]:h-full [&>svg]:max-h-full [&>svg]:max-w-full [&>svg]:w-full"
+          style={{ maxWidth: qrSize, maxHeight: qrSize }}
           dangerouslySetInnerHTML={{ __html: svg }}
         />
       </div>
+      <p className="px-4 text-xs">{description}</p>
     </Modal>
   );
 };

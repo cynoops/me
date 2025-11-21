@@ -7,6 +7,8 @@ type Props = {
   title?: string;
   children: ReactNode;
   widthClass?: string;
+  bodyClassName?: string;
+  fullScreen?: boolean;
 };
 
 export const Modal = ({
@@ -15,6 +17,8 @@ export const Modal = ({
   title,
   children,
   widthClass = "max-w-lg",
+  bodyClassName,
+  fullScreen = false,
 }: Props) => {
   useEffect(() => {
     if (!open) return;
@@ -30,7 +34,12 @@ export const Modal = ({
   if (!open) return null;
 
   return (
-    <div className="fixed inset-0 z-30 flex items-center justify-center px-4 py-8">
+    <div
+      className={clsx(
+        "fixed inset-0 z-30 flex",
+        fullScreen ? "items-stretch justify-center" : "items-center justify-center px-4 py-8",
+      )}
+    >
       <div
         className="absolute inset-0 bg-[rgba(0,31,63,0.65)]"
         onClick={onClose}
@@ -38,8 +47,9 @@ export const Modal = ({
       />
       <div
         className={clsx(
-          "relative w-full rounded-2xl bg-white shadow-xl",
-          widthClass,
+          "relative w-full bg-white shadow-xl",
+          fullScreen ? "flex h-full max-w-none flex-col rounded-none" : "flex flex-col rounded-2xl",
+          !fullScreen && widthClass,
         )}
         role="dialog"
       >
@@ -57,7 +67,16 @@ export const Modal = ({
             ×
           </button>
         </div>
-        <div className="max-h-[80vh] overflow-y-auto px-4 py-4">{children}</div>
+        <div
+          className={clsx(
+            fullScreen
+              ? "flex-1 overflow-auto px-4 py-4 sm:px-6 sm:py-6"
+              : "max-h-[80vh] overflow-y-auto px-4 py-4",
+            bodyClassName,
+          )}
+        >
+          {children}
+        </div>
       </div>
     </div>
   );

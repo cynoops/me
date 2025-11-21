@@ -11,7 +11,7 @@ export const AppFooter = ({ locale, onChange, label }: Props) => {
   return (
     <footer className="mt-8 border-t border-grey-dark bg-grey-light">
       <div className="mx-auto flex max-w-4xl items-center justify-between px-4 py-4 text-sm text-grey-text">
-        <span>&copy; {new Date().getFullYear()} CynoOps</span>
+        <span>&copy; {new Date().getFullYear()} CYNOOPS</span>
         <label className="flex items-center gap-2">
           <span>{label}</span>
           <select

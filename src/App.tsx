@@ -64,9 +64,11 @@ const AppShell = () => {
 
   const handlePrint = () => {
     if (!shareReady) return;
-    const markup = buildPrintMarkup(profile, dogs, translations);
     const printWindow = window.open("", "_blank", "noopener");
     if (!printWindow) return;
+
+    const markup = buildPrintMarkup(profile, dogs, translations);
+    printWindow.document.open();
     printWindow.document.write(markup);
     printWindow.document.close();
     printWindow.focus();

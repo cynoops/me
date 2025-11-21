@@ -101,10 +101,18 @@ export const buildPrintMarkup = (
         <ul class="dogs">${dogItems || `<li>${translations.dogs.empty}</li>`}</ul>
       </section>
       <script>
-        window.addEventListener('load', () => {
-          window.print();
-          setTimeout(() => window.close(), 300);
-        });
+        (function () {
+          const trigger = () => {
+            window.focus();
+            window.print();
+          };
+
+          if (document.readyState === "complete") {
+            trigger();
+          } else {
+            window.addEventListener("load", trigger, { once: true });
+          }
+        })();
       </script>
     </body>
   </html>`;
