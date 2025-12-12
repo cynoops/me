@@ -10,10 +10,52 @@ if (!container) {
 }
 
 if ("serviceWorker" in navigator && import.meta.env.PROD) {
+  const UPDATE_CHECK_INTERVAL = 60 * 60 * 1000;
+
   window.addEventListener("load", () => {
-    navigator.serviceWorker.register("/service-worker.js").catch((error) => {
-      console.error("Service worker registration failed:", error);
-    });
+    navigator.serviceWorker
+      .register("/service-worker.js")
+      .then((registration) => {
+        const requestUpdate = () => registration.update();
+
+        const activateWaitingWorker = (worker: ServiceWorker | null) => {
+          if (worker) {
+            worker.postMessage({ type: "SKIP_WAITING" });
+          }
+        };
+
+        registration.addEventListener("updatefound", () => {
+          const newWorker = registration.installing;
+          if (!newWorker) return;
+
+          newWorker.addEventListener("statechange", () => {
+            if (newWorker.state === "installed") {
+              activateWaitingWorker(registration.waiting);
+            }
+          });
+        });
+
+        if (registration.waiting) {
+          activateWaitingWorker(registration.waiting);
+        }
+
+        navigator.serviceWorker.addEventListener("controllerchange", () => {
+          window.location.reload();
+        });
+
+        requestUpdate();
+        const updateInterval = window.setInterval(
+          requestUpdate,
+          UPDATE_CHECK_INTERVAL,
+        );
+
+        window.addEventListener("beforeunload", () => {
+          window.clearInterval(updateInterval);
+        });
+      })
+      .catch((error) => {
+        console.error("Service worker registration failed:", error);
+      });
   });
 }
 
