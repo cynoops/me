@@ -14,6 +14,9 @@
       "me": "Me",
       "unnamedHandler": "Dog handler"
     },
+    "handlers": {
+      "remove": "Remove handler"
+    },
     "profile": {
       "title": "Handler profile",
       "name": "Name",
@@ -76,6 +79,7 @@
     "messages": {
       "profileIncomplete": "Add a name and phone number before sharing.",
       "deleteDog": "Remove dog from roster?",
+      "deleteHandler": "Remove this dog handler?",
       "scanInvalid": "This QR code is not a CynoOps handler QR.",
       "scanPermission": "Camera access is required to scan QR codes."
     }
@@ -94,6 +98,9 @@
     "tabs": {
       "me": "Ich",
       "unnamedHandler": "Hundeführer*in"
+    },
+    "handlers": {
+      "remove": "Hundeführer*in entfernen"
     },
     "profile": {
       "title": "Hundeführer*in",
@@ -157,6 +164,7 @@
     "messages": {
       "profileIncomplete": "Zuerst Name und Telefonnummer ergänzen.",
       "deleteDog": "Hund aus der Liste entfernen?",
+      "deleteHandler": "Diesen Hundeführer entfernen?",
       "scanInvalid": "Dieser QR-Code konnte nicht als CynoOps-Karte erkannt werden.",
       "scanPermission": "Für das Scannen wird Kamerazugriff benötigt."
     }
@@ -175,6 +183,9 @@
     "tabs": {
       "me": "Moi",
       "unnamedHandler": "Conducteur de chien"
+    },
+    "handlers": {
+      "remove": "Supprimer le conducteur"
     },
     "profile": {
       "title": "Profil du conducteur",
@@ -238,6 +249,7 @@
     "messages": {
       "profileIncomplete": "Saisissez d'abord un nom et un numéro.",
       "deleteDog": "Retirer ce chien de la liste ?",
+      "deleteHandler": "Supprimer ce conducteur de chien ?",
       "scanInvalid": "Impossible de lire ce QR CynoOps.",
       "scanPermission": "L'accès à la caméra est nécessaire pour scanner."
     }
