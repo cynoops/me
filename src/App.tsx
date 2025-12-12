@@ -149,7 +149,17 @@ const AppShell = () => {
     printWindow.document.open();
     printWindow.document.write(markup);
     printWindow.document.close();
-    printWindow.focus();
+
+    const triggerPrint = () => {
+      printWindow.focus();
+      printWindow.print();
+    };
+
+    if (printWindow.document.readyState === "complete") {
+      triggerPrint();
+    } else {
+      printWindow.addEventListener("load", triggerPrint, { once: true });
+    }
   };
 
   const handleScanPayload = (payload: string) => {

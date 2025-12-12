@@ -100,20 +100,6 @@ export const buildPrintMarkup = (
         <h2>${translations.dogs.title}</h2>
         <ul class="dogs">${dogItems || `<li>${translations.dogs.empty}</li>`}</ul>
       </section>
-      <script>
-        (function () {
-          const trigger = () => {
-            window.focus();
-            window.print();
-          };
-
-          if (document.readyState === "complete") {
-            trigger();
-          } else {
-            window.addEventListener("load", trigger, { once: true });
-          }
-        })();
-      </script>
     </body>
   </html>`;
 };
