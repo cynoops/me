@@ -28,6 +28,7 @@ type HandlerView = SharedHandler & {
 
 const PROFILE_KEY = "me-profile";
 const DOGS_KEY = "me-dogs";
+const SCANNED_HANDLERS_KEY = "me-scanned-handlers";
 
 const AppShell = () => {
   const [profile, setProfile] = usePersistentState<HandlerProfile>(
@@ -39,7 +40,9 @@ const AppShell = () => {
   const [activeDogId, setActiveDogId] = useState<string | null>(null);
   const [showQr, setShowQr] = useState(false);
   const [showScanner, setShowScanner] = useState(false);
-  const [scannedHandlers, setScannedHandlers] = useState<SharedHandler[]>([]);
+  const [scannedHandlers, setScannedHandlers] = usePersistentState<
+    SharedHandler[]
+  >(SCANNED_HANDLERS_KEY, []);
   const [activeHandlerId, setActiveHandlerId] = useState<string>("me");
   const [scanError, setScanError] = useState<string | null>(null);
 
@@ -115,6 +118,19 @@ const AppShell = () => {
   };
 
   const closeDogModal = () => setActiveDogId(null);
+
+  const handleRemoveActiveHandler = () => {
+    if (isOwnProfile) return;
+
+    if (!window.confirm(translations.messages.deleteHandler)) {
+      return;
+    }
+
+    setScannedHandlers((prev) =>
+      prev.filter((handler) => handler.id !== activeHandler.id),
+    );
+    setActiveHandlerId("me");
+  };
 
   const handlePrint = () => {
     if (!shareReady) return;
@@ -236,6 +252,17 @@ const AppShell = () => {
           onDelete={isOwnProfile ? handleDeleteDog : () => {}}
           isEditing={isEditingActive}
         />
+        {!isOwnProfile ? (
+          <div className="flex justify-end">
+            <button
+              type="button"
+              className="rounded-full border border-error-light px-4 py-2 text-sm font-semibold text-error hover:bg-error-light/10"
+              onClick={handleRemoveActiveHandler}
+            >
+              {translations.handlers.remove}
+            </button>
+          </div>
+        ) : null}
       </main>
       <AppFooter
         locale={locale}
