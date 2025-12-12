@@ -12,6 +12,7 @@ import { QrModal } from "./components/qr/QrModal";
 import { buildPrintMarkup } from "./lib/print";
 import { HandlerTabs } from "./components/layout/HandlerTabs";
 import { QrScannerModal } from "./components/qr/QrScannerModal";
+import { Modal } from "./components/shared/Modal";
 
 type Mode = "edit" | "view";
 
@@ -40,6 +41,7 @@ const AppShell = () => {
   const [activeDogId, setActiveDogId] = useState<string | null>(null);
   const [showQr, setShowQr] = useState(false);
   const [showScanner, setShowScanner] = useState(false);
+  const [showRemoveHandlerConfirm, setShowRemoveHandlerConfirm] = useState(false);
   const [scannedHandlers, setScannedHandlers] = usePersistentState<
     SharedHandler[]
   >(SCANNED_HANDLERS_KEY, []);
@@ -122,14 +124,16 @@ const AppShell = () => {
   const handleRemoveActiveHandler = () => {
     if (isOwnProfile) return;
 
-    if (!window.confirm(translations.messages.deleteHandler)) {
-      return;
-    }
-
     setScannedHandlers((prev) =>
       prev.filter((handler) => handler.id !== activeHandler.id),
     );
     setActiveHandlerId("me");
+    setShowRemoveHandlerConfirm(false);
+  };
+
+  const confirmRemoveHandler = () => {
+    if (isOwnProfile) return;
+    setShowRemoveHandlerConfirm(true);
   };
 
   const handlePrint = () => {
@@ -257,7 +261,7 @@ const AppShell = () => {
             <button
               type="button"
               className="rounded-full border border-error-light px-4 py-2 text-sm font-semibold text-error hover:bg-error-light/10"
-              onClick={handleRemoveActiveHandler}
+              onClick={confirmRemoveHandler}
             >
               {translations.handlers.remove}
             </button>
@@ -302,6 +306,31 @@ const AppShell = () => {
           scanError ?? translations.messages.scanPermission
         }
       />
+      <Modal
+        open={showRemoveHandlerConfirm}
+        onClose={() => setShowRemoveHandlerConfirm(false)}
+        title={translations.handlers.remove}
+      >
+        <div className="flex flex-col gap-4">
+          <p className="text-base text-brand">{translations.messages.deleteHandler}</p>
+          <div className="flex justify-end gap-2">
+            <button
+              type="button"
+              className="rounded-full border border-grey-dark px-4 py-2 text-sm font-semibold text-grey-text"
+              onClick={() => setShowRemoveHandlerConfirm(false)}
+            >
+              {translations.modal.cancel}
+            </button>
+            <button
+              type="button"
+              className="rounded-full bg-error px-5 py-2 text-sm font-semibold text-white hover:bg-error-dark"
+              onClick={handleRemoveActiveHandler}
+            >
+              {translations.handlers.remove}
+            </button>
+          </div>
+        </div>
+      </Modal>
     </>
   );
 };
