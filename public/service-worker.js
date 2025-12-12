@@ -1,4 +1,4 @@
-const CACHE_NAME = "me-offline-cache-v1";
+const CACHE_NAME = "me-offline-cache-v2";
 const OFFLINE_ASSETS = ["/", "/index.html", "/favicon.svg"];
 
 self.addEventListener("install", (event) => {
@@ -31,6 +31,13 @@ self.addEventListener("message", (event) => {
 
 self.addEventListener("fetch", (event) => {
   if (event.request.method !== "GET") return;
+
+  // Always let the browser fetch the latest worker script so updates are not
+  // served from our runtime cache. Otherwise `navigator.serviceWorker.update()`
+  // could keep seeing a stale cached copy and never pick up new releases.
+  if (new URL(event.request.url).pathname === "/service-worker.js") {
+    return;
+  }
 
   event.respondWith(
     (async () => {
